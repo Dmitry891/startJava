@@ -6,34 +6,29 @@ public class Calculator {
         нужно производить указанные выше операции, а также сама математическая операция задаются в ручную.
         По умолчанию стоит операция "^".
         */
-        long firstNumber = 2;
-        long secondNumber = 6;
+        int firstNumber = 6;
+        int secondNumber = 2;
         char operation = '^';
-
+        int result = 0;
+        int power = 1;
+        
         if (operation == '+') {
-            long result = firstNumber + secondNumber;
-            System.out.println(firstNumber + " + " + secondNumber + " = " + result);
+            result = firstNumber + secondNumber;
         } else if (operation == '-') {
-            long result = firstNumber - secondNumber;
-            System.out.println(firstNumber + " - " + secondNumber + " = " + result);
+            result = firstNumber - secondNumber;
         } else if (operation == '*') {
-            long result = firstNumber * secondNumber;
-            System.out.println(firstNumber + " * " + secondNumber + " = " + result);
+            result = firstNumber * secondNumber;
         } else if (operation == '/') {
-            long result = firstNumber / secondNumber;
-            System.out.println(firstNumber + " / " + secondNumber + " = " + result);
+            result = firstNumber / secondNumber;
         } else if (operation == '%') {
-            long result = firstNumber % secondNumber;
-            System.out.println(firstNumber + " % " + secondNumber + " = " + result);
+            result = firstNumber % secondNumber;
         } else if (operation == '^') {
-            long power = 1;
-            for (long i = 1; i<=secondNumber; i++) {
-                power = power * firstNumber;
+            for (int i = 1; i <= secondNumber; i++) {
+                power *= firstNumber;
             }
-            System.out.println(firstNumber + " ^ " + secondNumber + " = " + power);
-        }
-        else {
+        } else {
             System.out.println("Incorrect operation");
         }
+        System.out.println(firstNumber + " ^ " + secondNumber + " = " + power);
     }
 }
