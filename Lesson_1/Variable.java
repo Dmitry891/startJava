@@ -10,14 +10,14 @@ public class Variable {
         boolean windowsSystеm = true;
         char finish = '\u0021';
 
-        System.out.printf("%28s\n", "Specifications");
-        System.out.printf("Number of CPU Cores: %21s\n", numberOfСpuCores);
-        System.out.printf("CPU Frequency, MHz: %22s\n", сpuFrequency);
-        System.out.printf("Size of RAM, Byte: %23s\n", sizeOfRam);
-        System.out.printf("RAM Frequency, Hz: %23s\n", ramFrequency);
-        System.out.printf("Total Storage Capacity, GB: %14s\n", totalStorageCapacity);
-        System.out.printf("Free Storage Capacity, GB: %15s\n", freeStorageCapacity);
-        System.out.printf("Is Windows operation system?: %12s\n", windowsSystеm);
+        System.out.println("Specifications");
+        System.out.println("Number of CPU Cores:" + "                     " + numberOfСpuCores);
+        System.out.println("CPU Frequency, MHz:" + "                   " + CpuFrequency);
+        System.out.println("Size of RAM, Byte:" + "               " + sizeOfRam);
+        System.out.println("RAM Frequency, Hz:" + "            " + RamFrequency);
+        System.out.println("Total Storage Capacity, GB:" + "         " + totalStorageCapacity);
+        System.out.println("Free Storage Capacity, GB:" + "          " + freeStorageCapacity);
+        System.out.println("Is Windows operation system?:" + "         " + windowsSystеm);
         System.out.println("Home work is done" + finish);
     }
 }
