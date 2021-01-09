@@ -6,8 +6,7 @@ public class Unicode {
         */
         System.out.println("Below is a list of the Unicode symbols in range of [33...126]: ");
         for (byte i = 33; i <= 126; i++) {
-            char symbol = (char) i;
-            System.out.print (symbol + " ");
-            } 
+            System.out.print((char) i + " ");
+        }
     }
 }
