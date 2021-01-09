@@ -10,8 +10,6 @@ public class Calculator {
         int secondNumber = 2;
         char operation = '^';
         int result = 0;
-        int power = 1;
-        
         if (operation == '+') {
             result = firstNumber + secondNumber;
         } else if (operation == '-') {
@@ -23,12 +21,13 @@ public class Calculator {
         } else if (operation == '%') {
             result = firstNumber % secondNumber;
         } else if (operation == '^') {
+            result = 1;
             for (int i = 1; i <= secondNumber; i++) {
-                power *= firstNumber;
+                result *= firstNumber;
             }
         } else {
             System.out.println("Incorrect operation");
         }
-        System.out.println(firstNumber + " ^ " + secondNumber + " = " + power);
+        System.out.println(firstNumber + " ^ " + secondNumber + " = " + result);
     }
 }
