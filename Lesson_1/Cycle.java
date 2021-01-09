@@ -18,9 +18,9 @@ public class Cycle {
         int k = 10;
         do { 
             if (k % 2 != 0) {
-            sum = sum + k;
+            sum += k;
             }
-           k++;
+            k++;
         } while (k <= 20);
         System.out.println("Result of the do while cycle: " + sum);
     }
