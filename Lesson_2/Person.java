@@ -6,23 +6,23 @@ public class Person {
     float weight = 98.5f;
     byte age = 27;
 
-    void walk (){
+    void walk() {
 
     }
 
-    void sit (){
+    void sit() {
 
     }
 
-    void run (){
+    void run() {
 
     }
 
-    void speak (){
+    void speak() {
 
     }
 
-    void learnJava (){
+    void learnJava() {
 
     }
 
