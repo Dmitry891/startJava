@@ -7,7 +7,7 @@ public class CalculatorTest {
         System.out.print("Enter a first number: ");
         int firstNumber = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Enter an operation (+, -, *, /, %, ^): ");
+        System.out.print("Enter an operation ( + , - , * , / , % , ^ ): ");
         char operation = scanner.next().charAt(0);
         scanner.nextLine();
         System.out.print("Enter a second number: ");

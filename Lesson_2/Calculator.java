@@ -41,7 +41,7 @@ public class Calculator {
                     }
                 break;
             default:
-                System.out.println("You've entered an invalid operation! Try again.");
+                System.out.println("You've entered an invalid operation!");
                 break;
         }
          System.out.println("Result is " + result);
