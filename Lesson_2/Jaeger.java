@@ -41,59 +41,58 @@ public class Jaeger {
     }
 
     public String getModelName() {
-        System.out.println("Jaeger's model is " + modelName);
+        System.out.println(modelName);
         return modelName;
     }
 
     public String getMark() {
-        System.out.println("Jaeger's mark is " + mark);
         return mark;
     }
 
     public String getOrigin() {
-        System.out.println("Jaeger's origin is " + origin);
         return origin;
     }
 
     public float getHeight() {
-        System.out.println("Jaeger's height is " + height);
         return height;
     }
 
     public float getWeight() {
-        System.out.println("Jaeger's weight is " + weight);
         return weight;
     }
 
     public int getSpeed() {
-        System.out.println("Jaeger's speed is " + speed);
         return speed;
     }
 
     public int getStrength() {
-        System.out.println("Jaeger's strength is " + strength);
         return strength;
     }
 
     public int getArmor() {
-        System.out.println("Jaeger's armor is " + armor);
         return armor;
     }
 
-    // void boolean drift() {
+    public void jaegerDescription() {
+        System.out.println("Jaeger's name is " + modelName);
+        System.out.println("Jaeger's origin is " + origin);
+        System.out.println("Jaeger's height is " + height);
+        System.out.println("Jaeger's weight is " + weight);
+        System.out.println("Jaeger's speed is " + speed);
+        System.out.println("Jaeger's strength is " + strength);
+        System.out.println("Jaeger's armor is " + armor);
+    }
 
-    // }
+    void drift() {
+    }
     
-    // void move () {
+    void move() {
+    }
 
-    // }
+    void scanKaiju() {
+    }
 
-    // void scanKaiju() {
-
-    // }
-
-    // void useVortexCannon() {
-
-    // }
+    void useVortexCannon() {
+    }
 
 }

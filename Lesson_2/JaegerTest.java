@@ -1,59 +1,28 @@
 
 public class JaegerTest {
     public static void main(String[] args) {
-        String modelName = "Cherno Alpha";
-        String mark = "Mark-1";
-        String origin = "Russia";
-        float height = 85.34f;
-        float weight = 2.412f;
-        int speed = 3;
-        int strength = 10;
-        int armor = 10;
-
-        // String modelName = "Striker Eureka";
-        // String mark = "Mark-5";
-        // String origin = "Australia";
-        // float height = 76.2f;
-        // float weight = 1,850f;
-        // int speed = 10;
-        // int strength = 10;
-        // int armor = 9;
-
-        Jaeger jaegerOne = new Jaeger();
-        jaegerOne.setModelName(modelName);
-        jaegerOne.setMark(mark);
-        jaegerOne.setOrigin(origin);
-        jaegerOne.setHeight(height);
-        jaegerOne.setWeight(weight);
-        jaegerOne.setSpeed(speed);
-        jaegerOne.setStrength(strength);
-        jaegerOne.setArmor(armor);
-        jaegerOne.getModelName();
-        jaegerOne.getMark();
-        jaegerOne.getOrigin();
-        jaegerOne.getHeight();
-        jaegerOne.getWeight();
-        jaegerOne.getSpeed();
-        jaegerOne.getStrength();
-        jaegerOne.getArmor();
-
-        // Jaeger jaegerTwo = new Jaeger();
-        // jaegerTwo.setModelName(modelName);
-        // jaegerTwo.setMark(mark);
-        // jaegerTwo.setOrigin(origin);
-        // jaegerTwo.setHeight(height);
-        // jaegerTwo.setWeight(weight);
-        // jaegerTwo.setSpeed(speed);
-        // jaegerTwo.setStrength(strength);
-        // jaegerTwo.setArmor(armor);
+        Jaeger сhernoAlpha = new Jaeger();
+        сhernoAlpha.setModelName("Cherno Alpha");
+        сhernoAlpha.setMark("Mark-1");
+        сhernoAlpha.setOrigin("Russia");
+        сhernoAlpha.setHeight(85.34f);
+        сhernoAlpha.setWeight(2.412f);
+        сhernoAlpha.setSpeed(3);
+        сhernoAlpha.setStrength(10);
+        сhernoAlpha.setArmor(10);
         
-        // jaegerTwo.getModelName();
-        // jaegerTwo.getMark();
-        // jaegerTwo.getOrigin();
-        // jaegerTwo.getHeight();
-        // jaegerTwo.getWeight();
-        // jaegerTwo.getSpeed();
-        // jaegerTwo.getStrength();
-        // jaegerTwo.getArmor();
+        Jaeger strikerEureka = new Jaeger();
+        strikerEureka.setModelName("Striker Eureka");
+        strikerEureka.setMark("Mark-5");
+        strikerEureka.setOrigin("Australia");
+        strikerEureka.setHeight(76.2f);
+        strikerEureka.setWeight(1.85f);
+        strikerEureka.setSpeed(10);
+        strikerEureka.setStrength(10);
+        strikerEureka.setArmor(9);
+
+        сhernoAlpha.jaegerDescription();
+        System.out.println();
+        strikerEureka.jaegerDescription();
     }
 }
