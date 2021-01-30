@@ -2,20 +2,21 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
     public static void main(String[] args) {
-        GuessNumber playGame = new GuessNumber();
-        playGame.startGame();
-        System.out.println("Do you want to continue? [yes/no]");
         Scanner scanner = new Scanner(System.in);
-        String answer = scanner.nextLine();
-        switch(answer) {
-            case "yes":
-                playGame.startGame();
-            case "no":
-                System.out.println("Goodbye!");
-                    break;
-            default:
+        System.out.print("Enter a name of first player: ");
+        Player player1 = new Player(scanner.nextLine());
+        System.out.print("Enter a name of second player: ");
+        Player player2 = new Player(scanner.nextLine());
+        GuessNumber game = new GuessNumber(player1, player2);
+        String answer;
+        do {
+        game.start();
+            do {
                 System.out.println("Do you want to continue? [yes/no]");
-                    break;
-        }
+                Scanner scan = new Scanner(System.in);
+                answer = scan.nextLine();
+            } while (!(answer.equals("yes") | answer.equals("no")));
+        } while (answer.equals("yes"));
+        System.out.println("Goodbye!");
     }
 }

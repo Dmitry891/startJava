@@ -1,19 +1,15 @@
-import java.util.Scanner;
-
 public class Player {
-    String nameOfPlayer;
-    byte numberOfPlayer;
+    private String name;
 
-    public void name() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter your name: ");
-        nameOfPlayer = scanner.nextLine();
+    Player(String name) {
+        this.name = name;
     }
 
-    public void guess() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the number: ");
-        numberOfPlayer = scanner.nextByte();
-        System.out.println(nameOfPlayer + " says: \"I've guessed " + numberOfPlayer + "\"");
+    public String getName() {
+        return this.name;
+    }
+
+    void setName(String name) {
+        this.name = name;
     }
 }
