@@ -10,12 +10,11 @@ public class GuessNumberTest {
         GuessNumber game = new GuessNumber(player1, player2);
         String answer;
         do {
-        game.start();
+            game.start();
             do {
                 System.out.println("Do you want to continue? [yes/no]");
-                Scanner scan = new Scanner(System.in);
-                answer = scan.nextLine();
-            } while (!(answer.equals("yes") | answer.equals("no")));
+                answer = scanner.nextLine();
+            } while (!(answer.equals("yes") || answer.equals("no")));
         } while (answer.equals("yes"));
         System.out.println("Goodbye!");
     }
