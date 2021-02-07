@@ -1,3 +1,6 @@
+package com.startjava.lesson_2_3.calculator
+import java.util.Scanner;
+
 public class Calculator {   
 
     private int firstNumber;
@@ -18,6 +21,19 @@ public class Calculator {
     }
 
     public int getResult() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a first number: ");
+        int firstNumber = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Enter an operation ( + , - , * , / , % , ^ ): ");
+        char operation = scanner.next().charAt(0);
+        scanner.nextLine();
+        System.out.print("Enter a second number: ");
+        int secondNumber = scanner.nextInt();
+        scanner.nextLine();
+        setFirstNumber(firstNumber);
+        setOperation(operation);
+        setSecondNumber(secondNumber);
         switch(operation) {
             case '+':
                 result = firstNumber + secondNumber;
@@ -46,5 +62,5 @@ public class Calculator {
         }
          System.out.println("Result is " + result);
          return result;
-     }
+    }
 }

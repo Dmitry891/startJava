@@ -1,3 +1,4 @@
+package com.startjava.lesson_2_3.guessnumber
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,11 +15,10 @@ public class GuessNumber {
         System.out.println("Let's play!");
         int numberOfPC = (byte) (Math.random() * 101);
         System.out.println("PC says: \"I've gueesed the number\"" + " " + numberOfPC);
+        Scanner s = new Scanner(System.in);
         while (true) {
-            Scanner s = new Scanner(System.in);
-            System.out.print("Enter the number: ");
+            System.out.println(player1.getName() + ", enter the number!");
             byte numberOfPlayer1 = s.nextByte();
-            System.out.println("Number of " + player1.getName() + " is " + numberOfPlayer1);
             if(numberOfPlayer1 == numberOfPC) {
                 System.out.println("Winner is " + player1.getName());
                 break;
@@ -27,9 +27,8 @@ public class GuessNumber {
             } else if(numberOfPlayer1 < numberOfPC) {
                 System.out.println("Number of " + player1.getName() + " is too small");
             }
-            System.out.print("Enter the number: ");
+            System.out.println(player2.getName() + ", enter the number!");
             byte numberOfPlayer2 = s.nextByte();
-            System.out.println("Number of " + player2.getName() + " is " + numberOfPlayer2);
             if(numberOfPlayer2 == numberOfPC) {
                 System.out.println("Winner is " + player2.getName());
                 break;

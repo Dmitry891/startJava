@@ -1,3 +1,5 @@
+package com.startjava.lesson_1.guessnumber
+
 public class GuessNumber {   
     public static void main(String[] args) {
         /*Согласно условию задания, использовать Scanner запрещено, поэтому число которое
