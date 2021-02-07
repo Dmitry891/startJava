@@ -1,4 +1,4 @@
-package com.startjava.lesson_1.variable
+package com.startjava.lesson_1.variable;
 
 public class Variable {   
     public static void main(String[] args) {
@@ -14,9 +14,9 @@ public class Variable {
 
         System.out.println("Specifications");
         System.out.println("Number of CPU Cores:" + "                     " + numberOfСpuCores);
-        System.out.println("CPU Frequency, MHz:" + "                   " + CpuFrequency);
+        System.out.println("CPU Frequency, MHz:" + "                   " + сpuFrequency);
         System.out.println("Size of RAM, Byte:" + "               " + sizeOfRam);
-        System.out.println("RAM Frequency, Hz:" + "            " + RamFrequency);
+        System.out.println("RAM Frequency, Hz:" + "            " + ramFrequency);
         System.out.println("Total Storage Capacity, GB:" + "         " + totalStorageCapacity);
         System.out.println("Free Storage Capacity, GB:" + "          " + freeStorageCapacity);
         System.out.println("Is Windows operation system?:" + "         " + windowsSystеm);
