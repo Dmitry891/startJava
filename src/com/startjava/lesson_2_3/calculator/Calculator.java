@@ -2,11 +2,11 @@ package com.startjava.lesson_2_3.calculator;
 
 import java.util.Scanner;
 
-public class Calculator {   
+public class Calculator {
 
     private int firstNumber;
     private int secondNumber;
-    private char operation;
+    private String operation;
     private int result;
 
     void setFirstNumber(int firstNumber) {
@@ -17,51 +17,48 @@ public class Calculator {
         this.secondNumber = secondNumber;
     }
 
-    void setOperation(char operation) {
+    void setOperation(String operation) {
         this.operation = operation;
     }
 
     public int getResult() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a first number: ");
-        int firstNumber = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Enter an operation ( + , - , * , / , % , ^ ): ");
-        char operation = scanner.next().charAt(0);
-        scanner.nextLine();
-        System.out.print("Enter a second number: ");
-        int secondNumber = scanner.nextInt();
-        scanner.nextLine();
+        System.out.print("Введите математическое выражение: ");
+        String str = scanner.nextLine();
+        String[] parts = str.split(" ");
+        String firstSymbol= parts[0];
+        String secondSymbol = parts[1];
+        String thirdSymbol = parts[2];
+        firstNumber = Integer.parseInt(parts[0]);
+        secondNumber = Integer.parseInt(parts[2]);
+        operation = parts[1];
         setFirstNumber(firstNumber);
         setOperation(operation);
         setSecondNumber(secondNumber);
         switch(operation) {
-            case '+':
-                result = firstNumber + secondNumber;
+            case "+":
+                result = Math.addExact(firstNumber, secondNumber);
                 break;
-            case '-':
-                result = firstNumber - secondNumber;
+            case "-":
+                result = Math.subtractExact(firstNumber, secondNumber);
                 break;
-            case '*':
-                result = firstNumber * secondNumber;
+            case "*":
+                result = Math.multiplyExact(firstNumber, secondNumber);
                 break;
-            case '/':
+            case "/":
                 result = firstNumber / secondNumber;
                 break;
-            case '%':
+            case "%":
                 result = firstNumber % secondNumber;
                 break;
-            case '^':
-                result = 1;
-                    for (int i = 1; i <= secondNumber; i++) {
-                        result *= firstNumber;
-                    }
+            case "^":
+                result = (int) Math.pow(firstNumber, secondNumber);
                 break;
             default:
-                System.out.println("You've entered an invalid operation!");
+                System.out.println("Вы ввели некорретную операцию!");
                 break;
         }
-         System.out.println("Result is " + result);
+         System.out.println("Результат вычислений: " + result);
          return result;
     }
 }

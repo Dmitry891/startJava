@@ -9,11 +9,11 @@ public class CalculatorTest {
         do {
         CalculatorSimple.getResult();
             do {
-                System.out.println("Do you want to continue? [yes/no]");
+                System.out.println("Желаете продолжить? [да/нет]");
                 Scanner scan = new Scanner(System.in);
                 answer = scan.nextLine();
-            } while(!(answer.equals("yes") | answer.equals("no")));
-        } while(answer.equals("yes"));
-        System.out.println("Goodbye!");
+            } while(!(answer.equals("да") | answer.equals("нет")));
+        } while(answer.equals("да"));
+        System.out.println("До свидания!");
     }
 }
