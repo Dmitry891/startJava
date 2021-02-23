@@ -5,7 +5,6 @@ public class Calculator {
     private int firstNumber;
     private int secondNumber;
     private String operation;
-    private int result;
 
     void setFirstNumber(int firstNumber) {
         this.firstNumber = firstNumber;
@@ -28,14 +27,14 @@ public class Calculator {
             case "*":
                 return Math.multiplyExact(firstNumber, secondNumber);
             case "/":
-                return (firstNumber / secondNumber);
+                return firstNumber / secondNumber;
             case "%":
-                return (firstNumber % secondNumber);
+                return firstNumber % secondNumber;
             case "^":
-                return ((int) Math.pow(firstNumber, secondNumber));
+                return (int) Math.pow(firstNumber, secondNumber);
             default:
                 System.out.println("Вы ввели некорретную операцию!");
         }
-         return 0;
+        return 0;
     }
 }

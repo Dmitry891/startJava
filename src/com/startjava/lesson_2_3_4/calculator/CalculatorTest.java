@@ -11,17 +11,13 @@ public class CalculatorTest {
             System.out.print("Введите математическое выражение: ");
             String str = scan.nextLine();
             String[] parts = str.split(" ");
-            String firstSymbol= parts[0];
-            String secondSymbol = parts[1];
-            String thirdSymbol = parts[2];
             int firstNumber = Integer.parseInt(parts[0]);
             int secondNumber = Integer.parseInt(parts[2]);
             String operation = parts[1];
             calc.setFirstNumber(firstNumber);
             calc.setOperation(operation);
             calc.setSecondNumber(secondNumber);
-            int result = calc.calculate();
-            System.out.println("Результат вычислений: " + result);
+            System.out.println("Результат вычислений: " + calc.calculate());
             do {
                 System.out.println("Желаете продолжить? [да/нет]");
                 answer = scan.nextLine();
