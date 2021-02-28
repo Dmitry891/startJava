@@ -2,8 +2,7 @@ package com.startjava.lesson_2_3_4.guessnumber;
 
 public class Player {
     private String name;
-    int[] attemptsOfPlayer1 = new int[10];
-    int[] attemptsOfPlayer2 = new int[10];
+    private byte[] attemptsOfPlayer = new byte[10];
 
     Player(String name) {
         this.name = name;
@@ -15,5 +14,13 @@ public class Player {
 
     void setName(String name) {
         this.name = name;
+    }
+
+    public void setAttemptsOfPlayer(byte i, byte attempt) {
+            attemptsOfPlayer[i] = attempt;
+    }
+
+    public byte[] getAttemptsOfPlayer() {
+        return attemptsOfPlayer;
     }
 }
