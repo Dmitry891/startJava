@@ -6,60 +6,67 @@ import java.util.Arrays;
 public class GuessNumber {
     private Player player1;
     private Player player2;
+    byte secretNumber = (byte) (Math.random() * 101);
 
     GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
     }
 
-    public void checkAttempt(byte i, byte attempt, byte secretNumber, String name ) {
-        if (attempt == secretNumber) {
-            System.out.println("Игрок " + player1.getName() + " угадал число с попытки № " + (i + 1));
-        } else if (attempt > secretNumber) {
-            System.out.println("Число, которое ввёл " + name + "," + " слишком большое");
-        } else if (attempt < secretNumber) {
-            System.out.println("Число, которое ввёл " + name + "," + " слишком маленькое");
-        }
-    }
-
-    public void printPlayerAttempts(byte i, String name ){
-        byte[] copy1 = Arrays.copyOf(player1.getAttemptsOfPlayer(), i);
-        System.out.println(name + " вводил следующие числа: ");
-        for (i = 0; i < copy1.length; i++) {
-            System.out.print(copy1[i] + " ");
-        }
-        Arrays.fill(copy1, (byte) 0);
-    }
-
     public void start() {
-        String name;
         System.out.println("У вас 10 попыток!");
-        byte secretNumber = (byte) (Math.random() * 101);
         System.out.println("Компьютер загадал число" + " " + secretNumber);
-        Scanner s = new Scanner(System.in);
-        for (byte i = 0; i < 10; i++) {
-            System.out.println(player1.getName() + ", введите ваш вариант числа!");
-            byte attempt = s.nextByte();
-            player1.setAttemptsOfPlayer(i, attempt);
-            checkAttempt(i, attempt, secretNumber, player1.getName());
-            if (attempt == secretNumber) {
+        for(byte i = 0; i < 10; i++) {
+            enterNumber(i, player1);
+            if(checkAttempt(i, player1)) {
                 break;
             }
-            System.out.println(player2.getName() + ", введите ваш вариант числа!");
-            attempt = s.nextByte();
-            player2.setAttemptsOfPlayer(i, attempt);
-            checkAttempt(i, attempt, secretNumber, player2.getName());
-            if (attempt == secretNumber) {
+            enterNumber(i, player2);
+            if(checkAttempt(i, player2)) {
                 break;
             }
-            if (i == 9) {
+            if(i == 9) {
                 System.out.println("Уважемые игроки! Ваши попытки закончились! Никто не угадал число.");
                 break;
             }
         }
-        printPlayerAttempts(, player1.getName());
+        printPlayerAttempts(player1);
         System.out.println(" ");
-        printPlayerAttempts(, player2.getName());
+        printPlayerAttempts(player2);
         System.out.println(" ");
+        cleanNumbers(player1);
+        cleanNumbers(player2);
+    }
+
+    private void enterNumber(byte i, Player player) {
+        Scanner s = new Scanner(System.in);
+        System.out.println(player.getName() + ", введите ваш вариант числа!");
+        player.setAttempts(i, s.nextByte());
+    }
+
+    private boolean checkAttempt(byte i, Player player) {
+        if(player.getAttempt(i) == secretNumber) {
+            System.out.println("Игрок " + player.getName() + " угадал число с попытки № " + (i + 1));
+            return true;
+        } else if(player.getAttempt(i) > secretNumber) {
+            System.out.println("Число, которое ввёл " + player.getName() + "," + " слишком большое");
+            return false;
+        } else if(player.getAttempt(i) < secretNumber) {
+            System.out.println("Число, которое ввёл " + player.getName() + "," + " слишком маленькое");
+            return false;
+        }
+        return true;
+    }
+
+    private void printPlayerAttempts(Player player) {
+        System.out.println("Игрок " + player.getName() + " вводил следующие числа: ");
+        for(byte i : player.getAttempts()) {
+            System.out.print(i + " ");
+        }
+    }
+    private void cleanNumbers(Player player) {
+        for(byte i : player.getAttempts()) {
+            Arrays.fill(player.getAttempts(), (byte) 0);
+        }
     }
 }
