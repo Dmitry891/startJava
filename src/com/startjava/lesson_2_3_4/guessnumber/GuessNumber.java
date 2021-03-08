@@ -16,32 +16,36 @@ public class GuessNumber {
     public void start() {
         System.out.println("У вас 10 попыток!");
         System.out.println("Компьютер загадал число" + " " + secretNumber);
+        byte lastAttempt = 0;
         for(byte i = 0; i < 10; i++) {
             enterNumber(i, player1);
             if(checkAttempt(i, player1)) {
+                lastAttempt = i;
                 break;
             }
             enterNumber(i, player2);
             if(checkAttempt(i, player2)) {
+                lastAttempt = i;
                 break;
             }
             if(i == 9) {
                 System.out.println("Уважемые игроки! Ваши попытки закончились! Никто не угадал число.");
+                lastAttempt = i;
                 break;
             }
         }
-        printPlayerAttempts(player1);
+        printPlayerAttempts(player1, lastAttempt);
         System.out.println(" ");
-        printPlayerAttempts(player2);
+        printPlayerAttempts(player2, lastAttempt);
         System.out.println(" ");
-        cleanNumbers(player1);
-        cleanNumbers(player2);
+        player1.cleanAttempts(player1, lastAttempt);
+        player2.cleanAttempts(player2, lastAttempt);
     }
 
     private void enterNumber(byte i, Player player) {
         Scanner s = new Scanner(System.in);
         System.out.println(player.getName() + ", введите ваш вариант числа!");
-        player.setAttempts(i, s.nextByte());
+        player.setAttempt(i, s.nextByte());
     }
 
     private boolean checkAttempt(byte i, Player player) {
@@ -50,23 +54,16 @@ public class GuessNumber {
             return true;
         } else if(player.getAttempt(i) > secretNumber) {
             System.out.println("Число, которое ввёл " + player.getName() + "," + " слишком большое");
-            return false;
         } else if(player.getAttempt(i) < secretNumber) {
             System.out.println("Число, которое ввёл " + player.getName() + "," + " слишком маленькое");
-            return false;
         }
-        return true;
+        return false;
     }
 
-    private void printPlayerAttempts(Player player) {
+    private void printPlayerAttempts(Player player, byte lastAttempt) {
         System.out.println("Игрок " + player.getName() + " вводил следующие числа: ");
-        for(byte i : player.getAttempts()) {
-            System.out.print(i + " ");
-        }
-    }
-    private void cleanNumbers(Player player) {
-        for(byte i : player.getAttempts()) {
-            Arrays.fill(player.getAttempts(), (byte) 0);
+        for(byte number : player.getAttempts((byte) (lastAttempt + 1))) {
+            System.out.print(number + " ");
         }
     }
 }

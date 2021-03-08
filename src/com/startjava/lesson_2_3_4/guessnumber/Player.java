@@ -14,20 +14,20 @@ public class Player {
         return name;
     }
 
-    void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAttempts(byte i, byte attempt) {
+    public void setAttempt(byte i, byte attempt) {
         attempts[i] = attempt;
     }
+
     public byte getAttempt(byte i) {
         byte number = attempts[i];
         return number;
     }
 
-    public byte[] getAttempts() {
-        byte[] copy1 = Arrays.copyOf(attempts, attempts.length);
-        return copy1;
+    public byte[] getAttempts(byte i) {
+        return Arrays.copyOf(attempts, i);
+    }
+
+    public void cleanAttempts(Player player, byte i) {
+        Arrays.fill(attempts, (byte) 0);
     }
 }
