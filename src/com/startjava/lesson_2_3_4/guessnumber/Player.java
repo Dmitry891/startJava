@@ -19,15 +19,15 @@ public class Player {
     }
 
     public byte getAttempt(byte i) {
-        byte number = attempts[i];
-        return number;
+        //byte number = attempts[i];
+        return attempts[i];
     }
 
     public byte[] getAttempts(byte i) {
         return Arrays.copyOf(attempts, i);
     }
 
-    public void cleanAttempts(Player player, byte i) {
+    public void cleanAttempts(byte i) {
         Arrays.fill(attempts, (byte) 0);
     }
 }

@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class GuessNumber {
     private Player player1;
     private Player player2;
-    byte secretNumber = (byte) (Math.random() * 101);
+    private byte secretNumber;
 
     GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
@@ -15,31 +15,29 @@ public class GuessNumber {
 
     public void start() {
         System.out.println("У вас 10 попыток!");
+        secretNumber = (byte) (Math.random() * 101);
         System.out.println("Компьютер загадал число" + " " + secretNumber);
-        byte lastAttempt = 0;
-        for(byte i = 0; i < 10; i++) {
+        byte i;
+        for(i = 0; i < 10; i++) {
             enterNumber(i, player1);
             if(checkAttempt(i, player1)) {
-                lastAttempt = i;
                 break;
             }
             enterNumber(i, player2);
             if(checkAttempt(i, player2)) {
-                lastAttempt = i;
                 break;
             }
             if(i == 9) {
                 System.out.println("Уважемые игроки! Ваши попытки закончились! Никто не угадал число.");
-                lastAttempt = i;
                 break;
             }
         }
-        printPlayerAttempts(player1, lastAttempt);
+        printPlayerAttempts(player1, i);
         System.out.println(" ");
-        printPlayerAttempts(player2, lastAttempt);
+        printPlayerAttempts(player2, i);
         System.out.println(" ");
-        player1.cleanAttempts(player1, lastAttempt);
-        player2.cleanAttempts(player2, lastAttempt);
+        player1.cleanAttempts(i);
+        player2.cleanAttempts(i);
     }
 
     private void enterNumber(byte i, Player player) {
@@ -60,9 +58,9 @@ public class GuessNumber {
         return false;
     }
 
-    private void printPlayerAttempts(Player player, byte lastAttempt) {
+    private void printPlayerAttempts(Player player, byte i) {
         System.out.println("Игрок " + player.getName() + " вводил следующие числа: ");
-        for(byte number : player.getAttempts((byte) (lastAttempt + 1))) {
+        for(byte number : player.getAttempts((byte) (i + 1))) {
             System.out.print(number + " ");
         }
     }
